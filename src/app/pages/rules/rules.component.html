@@ -1,1 +1,13 @@
-<p>rules works!</p>
+<div class="flex flex-col items-center gap-4">
+    <h2 class="my-0 text-2xl font-bold">Hangman rules</h2>
+    <ul class="list-disc list-inside">
+        <li>You have 10 lives.</li>
+        <li>Each time you guess incorrectly, you lose a life.</li>
+        <li>If you run out of lives, you lose.</li>
+    </ul>
+    <app-button
+        label="PLAY"
+        (onClick)="startGame()"
+    >
+    </app-button>
+</div>

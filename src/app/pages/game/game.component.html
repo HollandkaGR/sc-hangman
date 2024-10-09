@@ -1,1 +1,23 @@
-<p>game works!</p>
+<app-button
+    label="RULES?"
+    (onClick)="checkRules()"
+    type="WARNING"
+>
+</app-button>
+<div class="flex flex-col gap-4">
+    @if (gameStateService.status() === 'SELECT_DIFFICULTY') {
+        <app-hangman-difficulty></app-hangman-difficulty>
+        <button (click)="gameStateService.startGame('ASD')">PLAY</button>
+    } @else {
+        <div class="flex flex-col">
+            <app-hangman-game></app-hangman-game>
+            <div>Word: {{ gameStateService.word() }}</div>
+            <button (click)="gameStateService.resetGame()">RESET</button>
+            <button (click)="gameStateService.givingUp()">GIVE UP</button>
+
+            @if (gameStateService.status() === 'LOST') {
+                <app-hangman-lost></app-hangman-lost>
+            }
+        </div>
+    }
+</div>

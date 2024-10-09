@@ -6,5 +6,11 @@
     "printWidth": 120,
     "quoteProps": "as-needed",
     "bracketSameLine": false,
-    "singleAttributePerLine": true
+    "singleAttributePerLine": true,
+    "overrides": [{
+        "files": "*.html",
+        "options": {
+            "parser": "angular"
+        }
+    }]
 }

@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { tap } from 'rxjs';
 import { GameStateService } from '../../services/game-state.service';
 import { WordService } from '../../services/word.service';
 
@@ -18,7 +19,9 @@ export class HangmanDifficultyComponent {
 
     public gameStateService = inject(GameStateService);
     public wordService = inject(WordService);
-    public possibleLengths$ = this.wordService.getWordsLengthsSet();
+    public possibleLengths$ = this.wordService
+        .getWordsLengthsSet()
+        .pipe(tap((lengths) => (this.lenghtOfWord = lengths[0])));
 
     constructor(private router: Router) {}
 

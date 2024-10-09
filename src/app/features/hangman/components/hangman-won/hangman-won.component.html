@@ -1,1 +1,9 @@
-<p>hangman-won works!</p>
+<div class="flex flex-col items-center">
+    <h1 class="text-3xl font-extrabold text-center text-green-600">YOU WON! 😎</h1>
+    <p>Total Guesses: {{ gameStateService.guessedLetters().length }}</p>
+    <app-button
+        label="Play Again"
+        type="SUCCESS"
+        (onClick)="gameStateService.resetGame()"
+    ></app-button>
+</div>

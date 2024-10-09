@@ -1,10 +1,11 @@
 <div class="flex flex-col items-center gap-3">
     <h2>Select the length of the word</h2>
     <select
+        *ngIf="possibleLengths$ | async as possibleLengths"
         [(ngModel)]="lenghtOfWord"
         class="text-black"
     >
-        @for (length of possibleLengths$ | async; track $index) {
+        @for (length of possibleLengths; track $index) {
             <option [value]="length">
                 {{ length }}
             </option>

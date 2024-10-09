@@ -6,3 +6,14 @@ export type GameState = {
     word: string;
     lifeLeft: number;
 };
+
+export interface HangmanLetter {
+    char: string;
+    index: number;
+    visible: boolean;
+}
+
+export interface LetterSelect {
+    letter: string;
+    disabled: boolean;
+}

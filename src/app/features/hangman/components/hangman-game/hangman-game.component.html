@@ -1,12 +1,13 @@
-<div class="flex flex-col gap-2">
-    <div class="flex">
+<div class="flex flex-col gap-2 rounded-md">
+    <div class="flex flex-wrap justify-center gap-1 md:gap-3 xl:gap-4">
         @for (letter of wordLetters(); track $index) {
-            <div>{{ letter.char }}</div>
+            <app-hangman-letter [letter]="letter"></app-hangman-letter>
         }
     </div>
+    <app-letter-select></app-letter-select>
     <div
         *ngIf="!gameStateService.gameOver()"
-        class="flex justify-between"
+        class="absolute top-0 left-0 right-0 flex justify-between"
     >
         <app-button
             label="Give up"

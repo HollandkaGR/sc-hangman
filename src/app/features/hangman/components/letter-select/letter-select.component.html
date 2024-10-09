@@ -1,0 +1,11 @@
+<div class="flex flex-wrap justify-center max-w-md gap-2 mx-auto md:max-w-md sm:max-w-sm xl:max-w-xl">
+    @for (char of lettersToSelect(); track $index) {
+        <button
+            (click)="selectLetter(char.letter)"
+            class="p-1 text-xs transition-colors duration-200 bg-blue-600 rounded-sm min-w-5 xl:text-2xl sm:text-xs md:text-sm hover:bg-blue-700 disabled:bg-slate-100 disabled:text-slate-400 xl:min-w-8 md:min-w-6 sm:min-w-5"
+            [disabled]="char.disabled || gameOver()"
+        >
+            {{ char.letter }}
+        </button>
+    }
+</div>

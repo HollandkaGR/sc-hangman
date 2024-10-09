@@ -1,0 +1,12 @@
+<div class="flex gap-3 justify-center py-2 bg-slate-700 text-white">
+    @for (item of navItems; track $index) {
+    <a
+        class="px-2 py-1 rounded hover:bg-red-500 hover:text-white transition-colors duration-200"
+        routerLink="{{ '/' + item.slug }}"
+        [routerLinkActive]="['underline']"
+        [routerLinkActiveOptions]="{ exact: true }"
+    >
+        {{ item.displayName }}
+    </a>
+    }
+</div>

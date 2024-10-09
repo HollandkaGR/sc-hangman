@@ -1,0 +1,13 @@
+<button
+    (click)="buttonClicked()"
+    class="px-2 py-1 text-xs transition-colors duration-200 rounded-sm disabled:bg-slate-100 disabled:text-slate-500"
+    [ngClass]="{
+        'bg-blue-600 hover:bg-blue-700': type === 'INFO',
+        'bg-red-600 hover:bg-red-700': type === 'DANGER',
+        'bg-green-600 hover:bg-green-700': type === 'SUCCESS',
+        'bg-orange-400 hover:bg-orange-500': type === 'WARNING',
+    }"
+    [disabled]="disabled"
+>
+    {{ label }}
+</button>

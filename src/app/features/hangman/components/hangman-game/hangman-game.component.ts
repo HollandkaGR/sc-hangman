@@ -1,12 +1,29 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, computed, inject, Signal } from '@angular/core';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { GameStateService } from '../../services/game-state.service';
 
 @Component({
-  selector: 'app-hangman-game',
-  standalone: true,
-  imports: [],
-  templateUrl: './hangman-game.component.html',
-  styleUrl: './hangman-game.component.scss'
+    selector: 'app-hangman-game',
+    standalone: true,
+    imports: [ButtonComponent, CommonModule],
+    templateUrl: './hangman-game.component.html',
+    styleUrl: './hangman-game.component.scss',
 })
 export class HangmanGameComponent {
+    public gameStateService = inject(GameStateService);
 
+    public wordLetters: Signal<{ char: string; index: number; visible: boolean }[]> = computed(() => {
+        const word = this.gameStateService.word();
+        const guessedLetters = this.gameStateService.guessedLetters();
+        const status = this.gameStateService.status();
+
+        return word.split('').map((char, index) => ({
+            char,
+            index,
+            visible: guessedLetters.includes(char) || status === 'LOST',
+        }));
+    });
+
+    constructor() {}
 }

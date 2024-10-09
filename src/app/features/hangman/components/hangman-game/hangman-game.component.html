@@ -1,1 +1,18 @@
-<p>hangman-game works!</p>
+<div class="flex flex-col gap-2">
+    <div class="flex">
+        @for (letter of wordLetters(); track $index) {
+            <div>{{ letter.char }}</div>
+        }
+    </div>
+    <div
+        *ngIf="!gameStateService.gameOver()"
+        class="flex justify-between"
+    >
+        <app-button
+            label="Give up"
+            (onClick)="gameStateService.givingUp()"
+            type="DANGER"
+        ></app-button>
+        <div>{{ gameStateService.lifeLeft() }} 💖</div>
+    </div>
+</div>

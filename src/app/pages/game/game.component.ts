@@ -1,3 +1,4 @@
+import { transition, trigger, useAnimation } from '@angular/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { HangmanLostComponent } from '@app/features/hangman/components/hangman-l
 import { HangmanWonComponent } from '@app/features/hangman/components/hangman-won/hangman-won.component';
 import { GameStateService } from '@app/features/hangman/services/game-state.service';
 import { WordService } from '@app/features/hangman/services/word.service';
+import { fadeInDown, fadeInUp } from 'ng-animate';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 
 @Component({
@@ -23,6 +25,10 @@ import { ButtonComponent } from '../../shared/components/button/button.component
     templateUrl: './game.component.html',
     styleUrl: './game.component.scss',
     providers: [WordService, GameStateService],
+    animations: [
+        trigger('wonEffect', [transition('* => *', useAnimation(fadeInUp, { params: { timing: 0.2 } }))]),
+        trigger('lostEffect', [transition('* => *', useAnimation(fadeInDown, { params: { timing: 0.2 } }))]),
+    ],
 })
 export class GameComponent {
     public gameStateService = inject(GameStateService);

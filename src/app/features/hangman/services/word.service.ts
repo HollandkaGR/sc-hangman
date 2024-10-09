@@ -22,9 +22,9 @@ export class WordService {
         );
     }
 
-    getWord(length: number): Observable<string> {
+    getWord(wordLength: number): Observable<string> {
         return this.words$.pipe(
-            map((words) => words.filter((w) => w.length === length)),
+            map((words) => words.filter((w) => w.length == wordLength)),
             map((words) => words[Math.floor(Math.random() * words.length)])
         );
     }

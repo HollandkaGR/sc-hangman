@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, inject, Signal } from '@angular/core';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { GameStateService } from '../../services/game-state.service';
+import { HangmanIndicatorComponent } from '../hangman-indicator/hangman-indicator.component';
 import { HangmanLetterComponent } from '../hangman-letter/hangman-letter.component';
 import { LetterSelectComponent } from '../letter-select/letter-select.component';
 
 @Component({
     selector: 'app-hangman-game',
     standalone: true,
-    imports: [ButtonComponent, CommonModule, LetterSelectComponent, HangmanLetterComponent],
+    imports: [ButtonComponent, CommonModule, LetterSelectComponent, HangmanLetterComponent, HangmanIndicatorComponent],
     templateUrl: './hangman-game.component.html',
     styleUrl: './hangman-game.component.scss',
 })

@@ -1,4 +1,7 @@
 <div class="flex flex-col gap-2 rounded-md">
+    <div class="w-32 py-3 mx-auto md:w-40 xl:w-48">
+        <app-hangman-indicator></app-hangman-indicator>
+    </div>
     <div class="flex flex-wrap justify-center gap-1 md:gap-3 xl:gap-4">
         @for (letter of wordLetters(); track $index) {
             <app-hangman-letter [letter]="letter"></app-hangman-letter>

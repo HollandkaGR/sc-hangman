@@ -1,30 +1,30 @@
 <div>
     <svg viewBox="0 0 10 12">
-        @if (lifeLeft() < 10) {
+        @if (lifeLeft() < 10 || gameOver()) {
             <path
                 d="M1,11 h8"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 9) {
+        @if (lifeLeft() < 9 || gameOver()) {
             <path
                 d="M9,11 v-10"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 8) {
+        @if (lifeLeft() < 8 || gameOver()) {
             <path
                 d="M9,1 h-4"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 7) {
+        @if (lifeLeft() < 7 || gameOver()) {
             <path
                 d="M5,1 v2"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 6) {
+        @if (lifeLeft() < 6 || gameOver()) {
             <circle
                 cx="5"
                 cy="4"
@@ -32,31 +32,31 @@
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 5) {
+        @if (lifeLeft() < 5 || gameOver()) {
             <path
                 d="M5,5 v3"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 4) {
+        @if (lifeLeft() < 4 || gameOver()) {
             <path
                 d="M5,5 l-2,2"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 3) {
+        @if (lifeLeft() < 3 || gameOver()) {
             <path
                 d="M5,5 l2,2"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 2) {
+        @if (lifeLeft() < 2 || gameOver()) {
             <path
                 d="M5,8 l-2,2"
                 [@fadeIn]
             />
         }
-        @if (lifeLeft() < 1) {
+        @if (lifeLeft() < 1 || gameOver()) {
             <path
                 d="M5,8 l2,2"
                 [@fadeIn]

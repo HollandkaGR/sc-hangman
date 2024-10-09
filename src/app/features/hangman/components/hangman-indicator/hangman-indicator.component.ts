@@ -15,4 +15,5 @@ import { GameStateService } from '../../services/game-state.service';
 export class HangmanIndicatorComponent {
     private readonly gameStateService = inject(GameStateService);
     public lifeLeft: Signal<number> = this.gameStateService.lifeLeft;
+    public gameOver: Signal<boolean> = this.gameStateService.gameOver;
 }
